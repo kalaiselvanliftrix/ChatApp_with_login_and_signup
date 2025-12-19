@@ -73,9 +73,6 @@ class _SignupScreenState extends State<SignupScreen> {
       final password = _passwordController.text;
       final confirmPassword = _confirmPasswordController.text;
       final age = _ageController.text;
-      print(
-        'Full Name: $fullName, Email: $email, Password: $password, Confirm: $confirmPassword, Age: $age',
-      );
       // Navigate to login
       if (mounted) {
         Navigator.pushNamed(context, '/login');

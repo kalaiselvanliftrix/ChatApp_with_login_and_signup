@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/intl.dart';
 
@@ -95,9 +96,9 @@ class _HomeScreenState extends State<HomeScreen> {
     await prefs.setBool('isLoggedIn', false);
     await prefs.remove('currentUserEmail');
     // Navigate back to login
-    if (mounted) {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
       Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
-    }
+    });
   }
 
   String _getLastMessage(String email) {
